@@ -32,7 +32,7 @@
     [self addChild:ball];
     
     // create vector
-    CGVector simpleVector = CGVectorMake(20, 20);
+    CGVector simpleVector = CGVectorMake(10, 10);
     
     // apply vector to ball
     [ball.physicsBody applyImpulse:simpleVector];
