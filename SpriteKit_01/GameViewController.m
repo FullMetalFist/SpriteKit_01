@@ -42,11 +42,16 @@
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene unarchiveFromFile:@"GameScene"];
+    GameScene *scene = [GameScene sceneWithSize:skView.bounds.size];    // extremely important to use this to properly render the screen!!
     scene.scaleMode = SKSceneScaleModeAspectFit;    // new scene encompasses entire scene in view, unlike before
     
     // Present the scene.
     [skView presentScene:scene];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 - (BOOL)shouldAutorotate
@@ -67,10 +72,6 @@
 {
     [super didReceiveMemoryWarning];
     // Release any cached data, images, etc that aren't in use.
-}
-
-- (BOOL)prefersStatusBarHidden {
-    return YES;
 }
 
 @end
