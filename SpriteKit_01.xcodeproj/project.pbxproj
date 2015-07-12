@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C00CC711B522D6800EB8394 /* blip.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC6E1B522D6800EB8394 /* blip.caf */; };
+		7C00CC721B522D6800EB8394 /* brickhit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC6F1B522D6800EB8394 /* brickhit.caf */; };
+		7C00CC731B522D6800EB8394 /* gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC701B522D6800EB8394 /* gameover.caf */; };
 		7C74662A1B4AEA4000E55DB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7466291B4AEA4000E55DB2 /* main.m */; };
 		7C74662D1B4AEA4000E55DB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74662C1B4AEA4000E55DB2 /* AppDelegate.m */; };
 		7C7466301B4AEA4000E55DB2 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74662F1B4AEA4000E55DB2 /* GameScene.m */; };
@@ -29,6 +32,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C00CC6E1B522D6800EB8394 /* blip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blip.caf; sourceTree = "<group>"; };
+		7C00CC6F1B522D6800EB8394 /* brickhit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brickhit.caf; sourceTree = "<group>"; };
+		7C00CC701B522D6800EB8394 /* gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameover.caf; sourceTree = "<group>"; };
 		7C7466241B4AEA4000E55DB2 /* SpriteKit_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKit_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7466281B4AEA4000E55DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C7466291B4AEA4000E55DB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -104,6 +110,9 @@
 		7C7466271B4AEA4000E55DB2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7C00CC6E1B522D6800EB8394 /* blip.caf */,
+				7C00CC6F1B522D6800EB8394 /* brickhit.caf */,
+				7C00CC701B522D6800EB8394 /* gameover.caf */,
 				7C7466281B4AEA4000E55DB2 /* Info.plist */,
 				7C7466291B4AEA4000E55DB2 /* main.m */,
 			);
@@ -209,7 +218,10 @@
 			files = (
 				7C74663D1B4AEA4000E55DB2 /* LaunchScreen.xib in Resources */,
 				7C74663A1B4AEA4000E55DB2 /* Images.xcassets in Resources */,
+				7C00CC721B522D6800EB8394 /* brickhit.caf in Resources */,
 				7C7466321B4AEA4000E55DB2 /* GameScene.sks in Resources */,
+				7C00CC711B522D6800EB8394 /* blip.caf in Resources */,
+				7C00CC731B522D6800EB8394 /* gameover.caf in Resources */,
 				7C7466381B4AEA4000E55DB2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +438,7 @@
 				7C74664E1B4AEA4000E55DB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7C74664F1B4AEA4000E55DB2 /* Build configuration list for PBXNativeTarget "SpriteKit_01Tests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +447,7 @@
 				7C7466511B4AEA4000E55DB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

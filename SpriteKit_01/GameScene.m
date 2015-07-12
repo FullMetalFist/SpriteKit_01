@@ -11,13 +11,18 @@
 @interface GameScene() <SKPhysicsContactDelegate>
 
 @property (nonatomic) SKSpriteNode *paddle;
+@property (nonatomic) SKAction *blipSFX;
+@property (nonatomic) SKAction *brickHitSFX;
+@property (nonatomic) SKAction *gameOverSFX;
 
 @end
 
-static const uint32_t ballCategory      = 1;    // 00000000000000000000000000000001
-static const uint32_t brickCategory     = 2;    // 00000000000000000000000000000010
-static const uint32_t paddleCategory    = 4;    // 00000000000000000000000000000100
-static const uint32_t edgeCategory      = 8;    // 00000000000000000000000000001000
+static const uint32_t ballCategory      = 0x1;    // 00000000000000000000000000000001
+static const uint32_t brickCategory     = 0x1 << 1;    // 00000000000000000000000000000010
+static const uint32_t paddleCategory    = 0x1 << 2;    // 00000000000000000000000000000100
+static const uint32_t edgeCategory      = 0x1 << 3;    // 00000000000000000000000000001000
+
+static const uint32_t bottomEdgeCategory = 0x1 << 4;
 
 /*
  or, we may use bitwise operators
@@ -46,11 +51,25 @@ static const uint32_t edgeCategory      = 8;    // 00000000000000000000000000001
     if (notTheBall.categoryBitMask == brickCategory) {
         NSLog(@"Bye brick!");
         [notTheBall.node removeFromParent];
+        [self runAction:self.brickHitSFX];
     }
     
     if (notTheBall.categoryBitMask == paddleCategory) {
         NSLog(@"Play boing sound");
+        [self runAction:self.blipSFX];
     }
+    
+    if (notTheBall.collisionBitMask == bottomEdgeCategory) {
+        NSLog(@"Passed into Forbidden Zone!");
+        [self runAction:self.gameOverSFX];
+    }
+}
+
+- (void)addBottomEdge {
+    SKNode *bottomNode = [SKNode node];
+    bottomNode.physicsBody = [SKPhysicsBody bodyWithEdgeFromPoint:CGPointMake(0, 1) toPoint:CGPointMake(self.size.width, 1)];
+    bottomNode.physicsBody.categoryBitMask = bottomEdgeCategory;
+    [self addChild:bottomNode];
 }
 
 - (void)addBall {
@@ -66,7 +85,7 @@ static const uint32_t edgeCategory      = 8;    // 00000000000000000000000000001
     ball.physicsBody.restitution = 1;
     ball.physicsBody.categoryBitMask = ballCategory;
     
-    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory;
+    ball.physicsBody.contactTestBitMask = brickCategory | paddleCategory | bottomEdgeCategory;
 //    ball.physicsBody.collisionBitMask = edgeCategory | brickCategory;   // only collides with the edge and brick
     
     // add to screen
@@ -108,6 +127,7 @@ static const uint32_t edgeCategory      = 8;    // 00000000000000000000000000001
     self.paddle.physicsBody.categoryBitMask = paddleCategory;
     // add to scene
     [self addChild:self.paddle];
+    [self addBottomEdge];
 }
 
 /*
@@ -129,9 +149,18 @@ static const uint32_t edgeCategory      = 8;    // 00000000000000000000000000001
     self.physicsWorld.gravity = CGVectorMake(0, 0);
     self.physicsWorld.contactDelegate = self;   // didBeginContact: & didEndContact:
     
+    
+    
+    [self addSFX];
     [self addBall];
     [self addPlayer];
     [self addBricks];
+}
+
+-(void)addSFX {
+    self.blipSFX = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
+    self.brickHitSFX = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
+    self.gameOverSFX = [SKAction playSoundFileNamed:@"gameover.caf" waitForCompletion:NO];
 }
 
 -(void)update:(CFTimeInterval)currentTime {
