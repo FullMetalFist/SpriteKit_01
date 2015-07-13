@@ -24,22 +24,9 @@ static const uint32_t edgeCategory      = 0x1 << 3;    // 0000000000000000000000
 
 static const uint32_t bottomEdgeCategory = 0x1 << 4;
 
-/*
- or, we may use bitwise operators
- static const uint32_t ballCategory      = 0x1;         // 00000000000000000000000000000001
- static const uint32_t brickCategory     = 0x1 << 1;    // 00000000000000000000000000000010
- static const uint32_t paddleCategory    = 0x1 << 2;    // 00000000000000000000000000000100
- static const uint32_t edgeCategory      = 0x1 << 3;    // 00000000000000000000000000001000
- */
-
 @implementation GameScene
 
 -(void)didBeginContact:(SKPhysicsContact *)contact {
-//    if (contact.bodyA.categoryBitMask == brickCategory) {
-//        NSLog(@"Brick Boing");
-//        [contact.bodyA.node removeFromParent];
-//    }
-    
     // create placeholder reference for the "non ball" object
     SKPhysicsBody *notTheBall;
     if (contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask) {
@@ -59,9 +46,14 @@ static const uint32_t bottomEdgeCategory = 0x1 << 4;
         [self runAction:self.blipSFX];
     }
     
-    if (notTheBall.collisionBitMask == bottomEdgeCategory) {
-        NSLog(@"Passed into Forbidden Zone!");
-        [self runAction:self.gameOverSFX];
+    if (notTheBall.categoryBitMask == bottomEdgeCategory) {
+        // create message
+        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Futura Medium"];
+        label.text = @"LOST";
+        label.fontColor = [SKColor blackColor];
+        label.fontSize = 50;
+        label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        [self addChild:label];
     }
 }
 
@@ -155,6 +147,7 @@ static const uint32_t bottomEdgeCategory = 0x1 << 4;
     [self addBall];
     [self addPlayer];
     [self addBricks];
+    [self addBottomEdge];
 }
 
 -(void)addSFX {
