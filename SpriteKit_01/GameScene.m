@@ -7,13 +7,13 @@
 //
 
 #import "GameScene.h"
+#import "EndScene.h"
 
 @interface GameScene() <SKPhysicsContactDelegate>
 
 @property (nonatomic) SKSpriteNode *paddle;
 @property (nonatomic) SKAction *blipSFX;
 @property (nonatomic) SKAction *brickHitSFX;
-@property (nonatomic) SKAction *gameOverSFX;
 
 @end
 
@@ -48,12 +48,8 @@ static const uint32_t bottomEdgeCategory = 0x1 << 4;
     
     if (notTheBall.categoryBitMask == bottomEdgeCategory) {
         // create message
-        SKLabelNode *label = [SKLabelNode labelNodeWithFontNamed:@"Futura Medium"];
-        label.text = @"LOST";
-        label.fontColor = [SKColor blackColor];
-        label.fontSize = 50;
-        label.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        [self addChild:label];
+        EndScene *endScene = [EndScene sceneWithSize:self.size];
+        [self.view presentScene:endScene transition:[SKTransition doorsCloseHorizontalWithDuration:1.0]];
     }
 }
 
@@ -153,7 +149,6 @@ static const uint32_t bottomEdgeCategory = 0x1 << 4;
 -(void)addSFX {
     self.blipSFX = [SKAction playSoundFileNamed:@"blip.caf" waitForCompletion:NO];
     self.brickHitSFX = [SKAction playSoundFileNamed:@"brickhit.caf" waitForCompletion:NO];
-    self.gameOverSFX = [SKAction playSoundFileNamed:@"gameover.caf" waitForCompletion:NO];
 }
 
 -(void)update:(CFTimeInterval)currentTime {

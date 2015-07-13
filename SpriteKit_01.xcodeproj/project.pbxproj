@@ -10,6 +10,7 @@
 		7C00CC711B522D6800EB8394 /* blip.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC6E1B522D6800EB8394 /* blip.caf */; };
 		7C00CC721B522D6800EB8394 /* brickhit.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC6F1B522D6800EB8394 /* brickhit.caf */; };
 		7C00CC731B522D6800EB8394 /* gameover.caf in Resources */ = {isa = PBXBuildFile; fileRef = 7C00CC701B522D6800EB8394 /* gameover.caf */; };
+		7C4E88611B540FF300C35D76 /* EndScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4E88601B540FF300C35D76 /* EndScene.m */; };
 		7C74662A1B4AEA4000E55DB2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7466291B4AEA4000E55DB2 /* main.m */; };
 		7C74662D1B4AEA4000E55DB2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74662C1B4AEA4000E55DB2 /* AppDelegate.m */; };
 		7C7466301B4AEA4000E55DB2 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C74662F1B4AEA4000E55DB2 /* GameScene.m */; };
@@ -35,6 +36,8 @@
 		7C00CC6E1B522D6800EB8394 /* blip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = blip.caf; sourceTree = "<group>"; };
 		7C00CC6F1B522D6800EB8394 /* brickhit.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brickhit.caf; sourceTree = "<group>"; };
 		7C00CC701B522D6800EB8394 /* gameover.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameover.caf; sourceTree = "<group>"; };
+		7C4E885F1B540FF300C35D76 /* EndScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EndScene.h; sourceTree = "<group>"; };
+		7C4E88601B540FF300C35D76 /* EndScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EndScene.m; sourceTree = "<group>"; };
 		7C7466241B4AEA4000E55DB2 /* SpriteKit_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpriteKit_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C7466281B4AEA4000E55DB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C7466291B4AEA4000E55DB2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				7C74662E1B4AEA4000E55DB2 /* GameScene.h */,
 				7C74662F1B4AEA4000E55DB2 /* GameScene.m */,
 				7C7466311B4AEA4000E55DB2 /* GameScene.sks */,
+				7C4E885F1B540FF300C35D76 /* EndScene.h */,
+				7C4E88601B540FF300C35D76 /* EndScene.m */,
 				7C7466331B4AEA4000E55DB2 /* GameViewController.h */,
 				7C7466341B4AEA4000E55DB2 /* GameViewController.m */,
 				7C7466361B4AEA4000E55DB2 /* Main.storyboard */,
@@ -244,6 +249,7 @@
 				7C74662D1B4AEA4000E55DB2 /* AppDelegate.m in Sources */,
 				7C7466301B4AEA4000E55DB2 /* GameScene.m in Sources */,
 				7C74662A1B4AEA4000E55DB2 /* main.m in Sources */,
+				7C4E88611B540FF300C35D76 /* EndScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
